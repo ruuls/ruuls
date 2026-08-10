@@ -45,8 +45,16 @@ I'm a dual-degree Master's student at **Virginia Tech**, specializing in **Compu
 
 ---
 
+## Resume
+
+[Download the PDF](assets/Ragul_Seetharaman_Resume.pdf)
+
+[![Ragul Seetharaman - Resume](assets/resume.png)](assets/Ragul_Seetharaman_Resume.pdf)
+
+---
+
 ## Let's Connect
 
 - [LinkedIn](https://www.linkedin.com/in/ragul-seetharaman/)
 - [Email](mailto:ragul.seeth@gmail.com)
-- [Resume](#) – 
+- [Resume](assets/Ragul_Seetharaman_Resume.pdf)
