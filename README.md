@@ -4,6 +4,14 @@ I'm a dual-degree Master's student at **Virginia Tech**, specializing in **Compu
 
 ---
 
+## Resume
+
+[Download the PDF](assets/Ragul_Seetharaman_Resume.pdf)
+
+[![Ragul Seetharaman - Resume](assets/resume.png)](assets/Ragul_Seetharaman_Resume.pdf)
+
+---
+
 ## What I Do
 
 - **Machine Learning & Deep Learning**  
@@ -42,14 +50,6 @@ I'm a dual-degree Master's student at **Virginia Tech**, specializing in **Compu
 - **AAAI 2024:** Intrusion Detection with Deep Autoencoders + RAG  
 - **2 Patents:** AI Supermarket & Smart Billing  
 - **IEEE CONECCT Finalist** | Top 1.7% Nationally by Larsen & Toubro  
-
----
-
-## Resume
-
-[Download the PDF](assets/Ragul_Seetharaman_Resume.pdf)
-
-[![Ragul Seetharaman - Resume](assets/resume.png)](assets/Ragul_Seetharaman_Resume.pdf)
 
 ---
 
