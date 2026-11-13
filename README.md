@@ -13,31 +13,12 @@ My work started with signal processing and classical ML on cardiac data, moved t
 
 ### PALE: design notes
 
-**Environment formulation**
-- Each task as a POMDP. The agent observes only dialogue and tool returns, never the full world state.
-- LLM user simulator with hidden intents and persona-conditioned preferences. Its actions are grounded in the environment (τ²-bench style dual control) so simulator drift doesn't leak into the score.
-- Compositional task generation from atomic primitives: a preference fact, a hard constraint, an exogenous event (product recall, gate change), and a tool side effect. Dependency depth and difficulty stay controllable and every task stays programmatically verifiable.
-
-**Long-term memory and cross-session state**
-- Seeded multi-session histories where the gold action depends on a fact introduced N sessions earlier, sweeping dependency distance and distractor density.
-- Knowledge-update probes. Facts carry bi-temporal validity (`valid_at` / `invalid_at`), and the check is whether the agent acts on the currently valid fact instead of the most retrieved or most recent mention.
-- Temporal grounding: resolving relative references ("the week after the move") against session timestamps.
-- Oracle-memory ablation that injects gold evidence into context. This separates retrieval failure from utilization failure, so a miss can be attributed to the memory layer or to reasoning.
-- Memory integrity. Adversarial writes through query-only memory injection (MINJA style) and indirect prompt injection in tool outputs, then tracing whether poisoned records propagate into later actions.
-
-**Privacy, consent, and delegated authority**
-- Contextual-integrity labels on every information flow (sender, recipient, data subject, attribute, transmission principle). Leakage is scored across the full trajectory, including intermediate tool calls, not just the final message.
-- Authorization-scope checks. Irreversible or high-stakes actions (purchases, cancellations, sharing health data with a caregiver) need explicit consent. Acting outside delegated scope fails the task even when the end state matches.
-
-**Proactivity and abstention**
-- Hidden-intent tasks where the correct policy is act, defer, or ask. Acting under unresolved ambiguity and redundant clarification (asking for something already supplied) are both penalized.
-- Calibrated abstention when evidence is missing or contradictory, treated as a decision outcome, not a span match.
-
-**Scoring and reliability**
-- Final-state diff against an annotated goal state, plus action-level assertions for side effects and constraint violations.
-- pass^k over i.i.d. trials to measure consistency, since pass@1 hides run-to-run variance.
-- LLM-as-judge only where outcomes aren't deterministic (clarification quality, tone), using binary rubric checklists and validated against human labels with Cohen's κ before the judge is trusted.
-- Failure taxonomy per trajectory: retrieval miss, stale-fact use, utilization error, policy violation, privacy leak, premature action.
+- **Environment:** POMDP tasks with hidden user intents and an environment-grounded LLM user simulator (τ²-bench style dual control). Tasks are composed from atomic primitives (preference, hard constraint, exogenous event, tool side effect) so they stay programmatically verifiable.
+- **Memory:** multi-session histories where the gold action depends on a fact N sessions back. Knowledge-update probes on bi-temporal facts (`valid_at` / `invalid_at`), temporal grounding, and an oracle-memory ablation to separate retrieval failure from utilization failure.
+- **Memory integrity:** MINJA-style query-only memory injection and indirect prompt injection through tool outputs, traced into downstream actions.
+- **Privacy and consent:** contextual-integrity labels on every information flow, scored over the full trajectory. Acting outside delegated scope fails the task even if the end state matches.
+- **Proactivity:** act / defer / ask policy on hidden-intent tasks. Acting under ambiguity and redundant clarification are both penalized, and abstention is scored as a decision.
+- **Scoring:** final-state diff plus action-level assertions, pass^k for run-to-run reliability, LLM-as-judge only for non-deterministic checks (validated against human labels with Cohen's κ), and a per-trajectory failure taxonomy.
 
 ---
 
