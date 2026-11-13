@@ -6,9 +6,9 @@ I'm a dual-degree Master's student at **Virginia Tech**, specializing in **Compu
 
 ## Resume
 
-[Download the PDF](assets/Ragul_Seetharaman_Resume.pdf)
+[Download the PDF](assets/Ragul_Seetharaman_AI_Resume.pdf)
 
-[![Ragul Seetharaman - Resume](assets/resume.png)](assets/Ragul_Seetharaman_Resume.pdf)
+[![Ragul Seetharaman - Resume](assets/resume.png)](assets/Ragul_Seetharaman_AI_Resume.pdf)
 
 ---
 
